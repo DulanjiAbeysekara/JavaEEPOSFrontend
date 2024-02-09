@@ -5,8 +5,9 @@
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/bootstrap-5.3.2-dist/css/bootstrap.css">
-    <script src="../CAL/assets/bootstrap-5.3.2-dist/js/bootstrap.js"></script>
-<!--    <style>-->
+
+
+    <!--    <style>-->
 <!--        body{-->
 <!--            width: 100%;-->
 <!--            height: 100vh;-->
@@ -91,10 +92,7 @@
                                     <label for="customerAddressText" class="form-label text-white">Customer Address  :</label>
                                     <input type="text" class="form-control" id="customerAddressText" placeholder="Customer Address">
                                 </div>
-                                <div class="mb-3" id="cusTp">
-                                    <label for="customerSalaryText" class="form-label text-white">Customer Salary  :</label>
-                                    <input type="text" class="form-control" id="customerSalaryText" placeholder="Customer Salary">
-                                </div>
+
                                 <button  id="savecustomer" type="button" class="mt-2 btn btn-info  text-black ">SaveCustomer</button>
                                 <button id="deletecustomer" type="button" class="mt-2 btn btn-secondary  text-black ">DeleteCustomer</button>
                                 <button id="updatecustomer" type="button" class="mt-2 btn btn btn-danger text-black  ">UpdateCustomer</button>
@@ -122,11 +120,10 @@
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
                             <th scope="col">Address</th>
-                            <th scope="col">Salary</th>
                         </tr>
                         </thead>
 
-                        <tbody id="tblBody">
+                        <tbody id="tblCustomer">
 
                         </tbody>
 
@@ -426,23 +423,25 @@
 
 <script src="assets/bootstrap-5.3.2-dist/jquery-3.6.1.min.js"></script>
 
+<script src="assets/bootstrap-5.3.2-dist/js/bootstrap.js"></script>
+
 <script src="db/db.js"></script>
 
-<script src="controller/Customer_controller.js"></script>
-<script src="model/Customer_Model.js"></script>
-<script src="controller/validation/Customer_Validation.js"></script>
+<script type="module" src="controller/Customer_controller.js"></script>
 
-<script src="controller/Item_Controller.js"></script>
-<script src="model/Item_Model.js"></script>
-<script src="controller/validation/Item_Validation.js"></script>
+<!--<script src="controller/validation/Customer_Validation.js"></script>-->
 
+<script type="module" src="controller/Item_Controller.js"></script>
 
-<script src="controller/PlaceOrder_controller.js"></script>
-<script src="model/Order_Model.js"></script>
+<!--<script src="controller/validation/Item_Validation.js"></script>-->
 
 
+<script type="module" src="controller/PlaceOrder_controller.js"></script>
 
-<script src="../CAL/assets/bootstrap-5.3.2-dist/css/bootstrap.css"></script>
-<script src="../CAL/assets/bootstrap-5.3.2-dist/js/bootstrap.js"></script>
+
+
+
+<!--<script src="../CAL/assets/bootstrap-5.3.2-dist/css/bootstrap.css"></script>-->
+<!--<script src="../CAL/assets/bootstrap-5.3.2-dist/js/bootstrap.js"></script>-->
 </body>
 </html>

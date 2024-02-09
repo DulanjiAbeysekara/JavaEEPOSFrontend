@@ -1,6 +1,6 @@
-var item = {
-    itemCode : "",
-    itemName : "",
-    unitePrice : "",
-    qty : ""
+export var item = {
+    code : "",
+    description : "",
+    qtyOnHand: "",
+    unitPrice : ""
 }

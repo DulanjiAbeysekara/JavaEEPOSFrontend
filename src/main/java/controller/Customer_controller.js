@@ -1,9 +1,11 @@
+import {customer} from "../model/Customer_Model.js";
+
 var btnSave = $("#savecustomer");
 var btnRemove = $("#deletecustomer");
 var btnGetAll = $("#getcustomer");
 var btnUpdate = $("#updatecustomer");
 
-getAll();
+// getAll();
 
 
 $("#customerIdText, #customerNameText, #customerAddressText #customerSalaryText").keydown(function (e){
@@ -13,111 +15,126 @@ $("#customerIdText, #customerNameText, #customerAddressText #customerSalaryText"
 });
 
 
-$("#customerIdText").keyup(function (e){
-    if(regexId.test($("#customerIdText").val())){
-        $("#customerIdText").css("border-color",  "transparent");
-    }else{
-        $("#customerIdText").css("border-color",  "red");
-    }
-});
-
-
-$("#customerIdText").keydown(function (e){
-    if(e.keyCode == 13 && regexId.test($("#customerIdText").val())) {
-        $("#customerNameText").focus();
-    }
-});
-
-
-
-$("#customerNameText").keyup(function (e){
-    if(regexName.test($("#customerNameText").val())){
-        $("#customerNameText").css("border-color",  "transparent");
-    }else{
-        $("#customerNameText").css("border-color",  "red");
-    }
-});
-
-$("#customerNameText").keydown(function (e){
-    if(e.keyCode == 13 && regexName.test($("#customerNameText").val())){
-        $("#customerTelText").focus();
-    }
-});
-
-$("#customerAddressText").keyup(function (e){
-    if(regexAddress.test($("#customerAddressText").val())){
-        $("#customerAddressText").css("border-color",  "transparent");
-    }else{
-        $("#customerAddressText").css("border-color",  "red");
-    }
-});
-
-$("#customerAddressText").keydown(function (e){
-    if(e.keyCode == 13 && regexAddress.test($("#customerAddressText").val())){
-        save();
-    }
-});
-
-
-
-
-$("#customerSalaryText").keyup(function (e){
-    if(regexSalary.test($("#customerSalaryText").val())){
-        $("#customerSalaryText").css("border-color",  "transparent");
-    }else{
-        $("#customerSalaryText").css("border-color",  "red");
-    }
-});
-
-$("#customerSalaryText").keydown(function (e){
-    if(e.keyCode == 13 && regexSalary.test($("#customerSalaryText").val())){
-        $("#customerSalaryText").focus();
-    }
-});
-
-
-
-
-
-
-
+// $("#customerIdText").keyup(function (e){
+//     if(regexId.test($("#customerIdText").val())){
+//         $("#customerIdText").css("border-color",  "transparent");
+//     }else{
+//         $("#customerIdText").css("border-color",  "red");
+//     }
+// });
+//
+//
+// $("#customerIdText").keydown(function (e){
+//     if(e.keyCode == 13 && regexId.test($("#customerIdText").val())) {
+//         $("#customerNameText").focus();
+//     }
+// });
+//
+//
+//
+// $("#customerNameText").keyup(function (e){
+//     if(regexName.test($("#customerNameText").val())){
+//         $("#customerNameText").css("border-color",  "transparent");
+//     }else{
+//         $("#customerNameText").css("border-color",  "red");
+//     }
+// });
+//
+// $("#customerNameText").keydown(function (e){
+//     if(e.keyCode == 13 && regexName.test($("#customerNameText").val())){
+//         $("#customerTelText").focus();
+//     }
+// });
+//
+// $("#customerAddressText").keyup(function (e){
+//     if(regexAddress.test($("#customerAddressText").val())){
+//         $("#customerAddressText").css("border-color",  "transparent");
+//     }else{
+//         $("#customerAddressText").css("border-color",  "red");
+//     }
+// });
+//
+// $("#customerAddressText").keydown(function (e){
+//     if(e.keyCode == 13 && regexAddress.test($("#customerAddressText").val())){
+//         save();
+//     }
+// });
+//
+//
+//
+//
+// $("#customerSalaryText").keyup(function (e){
+//     if(regexSalary.test($("#customerSalaryText").val())){
+//         $("#customerSalaryText").css("border-color",  "transparent");
+//     }else{
+//         $("#customerSalaryText").css("border-color",  "red");
+//     }
+// });
+//
+// $("#customerSalaryText").keydown(function (e){
+//     if(e.keyCode == 13 && regexSalary.test($("#customerSalaryText").val())){
+//         $("#customerSalaryText").focus();
+//     }
+// });
+//
 
 function save(){
 
-    if(regexId.test($("#customerIdText").val()) && regexName.test($("#customerNameText").val()) && regexAddress.test($("#customerAddress").val()) && regexSalary.test($("#customerSalaryText").val())){
-        var is = false;
-
-        for(let i = 0; i < CustomerDetails.length; i++){
-            if(CustomerDetails[i].cid == $("#customerIdText").val()){
-                is = true;
+    // if(regexId.test($("#customerIdText").val()) && regexName.test($("#customerNameText").val()) && regexAddress.test($("#customerAddress").val()) && regexSalary.test($("#customerSalaryText").val())){
+    //     var is = false;
+    //
+    //     for(let i = 0; i < CustomerDetails.length; i++){
+    //         if(CustomerDetails[i].cid == $("#customerIdText").val()){
+    //             is = true;
+    //         }
+    //     }
+    //
+    //     if(is == false){
+    //
+    //         var tblBody = $("#tblBody");
+    //
+    //         var id = $("#customerIdText").val();
+    //         var name = $("#customerNameText").val();
+    //         var address = $("#customerAddressText").val();
+    //         var salary = $("#customerSalaryText").val();
+    //
+    //         customer = {
+    //             cid : id,
+    //             cname : name,
+    //             caddress : address,
+    //             csalary : salary
+    //         }
+    //
+    //         CustomerDetails.push(customer);
+    //
+    //         let tr=$('<tr> <td>'+CustomerDetails[CustomerDetails.length-1].cid+'</td> <td>'+CustomerDetails[CustomerDetails.length-1].cname+'</td> <td>'+CustomerDetails[CustomerDetails.length-1].caddress+'</td> <td>'+CustomerDetails[CustomerDetails.length-1].csalary+'</td></tr>');
+    //         $("#tblBody").append(tr);
+    //
+    //     }else{
+    //         alert("Customer ID Already Used")
+    //     }
+    // }
+    let newCustomer = Object.assign({}, customer);
+    newCustomer.id = $("#customerIdText").val();
+    newCustomer.name = $("#customerNameText").val();
+    newCustomer.address = $("#customerAddressText").val();
+    console.log(newCustomer)
+    $.ajax({
+        url: "http://localhost:8080/POS/customer",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(newCustomer),
+        success: function (resp, status, xhr) {
+            if (xhr.status === 200) {
+                alert(resp)
+                getAll();
             }
+        },
+        error: function (xhr) {
+            alert(xhr.responseText)
         }
+    });
 
-        if(is == false){
-
-            var tblBody = $("#tblBody");
-
-            var id = $("#customerIdText").val();
-            var name = $("#customerNameText").val();
-            var address = $("#customerAddressText").val();
-            var salary = $("#customerSalaryText").val();
-
-            customer = {
-                cid : id,
-                cname : name,
-                caddress : address,
-                csalary : salary
-            }
-
-            CustomerDetails.push(customer);
-
-            let tr=$('<tr> <td>'+CustomerDetails[CustomerDetails.length-1].cid+'</td> <td>'+CustomerDetails[CustomerDetails.length-1].cname+'</td> <td>'+CustomerDetails[CustomerDetails.length-1].caddress+'</td> <td>'+CustomerDetails[CustomerDetails.length-1].csalary+'</td></tr>');
-            $("#tblBody").append(tr);
-
-        }else{
-            alert("Customer ID Already Used")
-        }
-    }
 
 
     $("#tblBody>tr").click(function (e){
@@ -142,25 +159,47 @@ btnSave.click(function(){
 
 
 
-function getAll(){
+function getAll() {
 
-    $('#tblBody').empty();
+//     $('#tblBody').empty();
+//
+//     for(var i = 0; i < CustomerDetails.length; i++){
+//
+//         var id = CustomerDetails[i].cid;
+//         var name = CustomerDetails[i].cname;
+//         var address = CustomerDetails[i].caddress;
+//         var salary = CustomerDetails[i].csalary;
+//
+//         let row = `<tr><td>${id}</td><td>${name}</td><td>${address}</td><td>${salary}</td></tr>`
+//
+//         $('#tblBody').append(row);
+//
+//     }
+//     bindEvents();
+// }
+    $.ajax({
+        url: "http://localhost:8080/POS/customer",
+        method: "GET",
+        success: function (resp, status, xhr) {
 
-    for(var i = 0; i < CustomerDetails.length; i++){
+            if (xhr.status === 200) {
+                console.log(resp)
+                let cusBody = $("#tblCustomer");
+                cusBody.empty();
+                for (let customer of resp) {
+                    cusBody.append(`
+                        <tr>
+                            <th scope="row">${customer.id}</th>
+                            <td>${customer.name}</td>
+                            <td>${customer.address}</td>
+                        </tr>`);
+                }
+            }
+        }
 
-        var id = CustomerDetails[i].cid;
-        var name = CustomerDetails[i].cname;
-        var address = CustomerDetails[i].caddress;
-        var salary = CustomerDetails[i].csalary;
-
-        let row = `<tr><td>${id}</td><td>${name}</td><td>${address}</td><td>${salary}</td></tr>`
-
-        $('#tblBody').append(row);
-
-    }
+    });
     bindEvents();
 }
-
 
 btnGetAll.click(function (){
 
@@ -170,56 +209,89 @@ btnGetAll.click(function (){
 
 
 
-btnRemove.click(function(event){
+btnRemove.click(function(event) {
 
     var id = $("#customerIdText").val();
 
-    for(var i = 0; i < CustomerDetails.length; i++){
+//     for(var i = 0; i < CustomerDetails.length; i++){
+//
+//         if(CustomerDetails[i].cid == id){
+//             CustomerDetails.splice(i, 1);
+//             console.log(CustomerDetails.length);
+//             getAll();
+//             clearFields();
+//             break;
+//         }
+//
+//     }
+//
+// });
 
-        if(CustomerDetails[i].cid == id){
-            CustomerDetails.splice(i, 1);
-            console.log(CustomerDetails.length);
-            getAll();
-            clearFields();
-            break;
+    $.ajax({
+        url: "http://localhost:8080/POS/customer?id="+id,
+        method: "DELETE",
+        success: function (resp, status, xhr) {
+
+            if (xhr.status === 200) {
+                alert(resp)
+                getAll();
+                 clearFields();
+
+            }
+
+        },
+        error:function (resp){
+            alert(resp);
         }
 
-    }
-
+    });
 });
-
 
 btnUpdate.click(function(){
 
-    var id = $("#customerIdText").val();
-    var name = $("#customerNameText").val();
-    var salary = $("#customerSalaryText").val();
-    var address = $("#customerAddressText").val();
+    // for(var i = 0; i < CustomerDetails.length; i++){
+    //
+    //     if(CustomerDetails[i].cid == id){
+    //
+    //         CustomerDetails[i].cid = id;
+    //         CustomerDetails[i].cname = name;
+    //         CustomerDetails[i].caddress = address;
+    //         CustomerDetails[i].csalary = salary;
+    //
+    //
+    //         getAll();
+    //         clearFields();
+    //
+    //         break;
+    //
+    //     }
+    //
+    //     if(i == CustomerDetails.length - 1){
+    //         alert("No")
+    //     }
+    //
+    // }
 
-    for(var i = 0; i < CustomerDetails.length; i++){
-
-        if(CustomerDetails[i].cid == id){
-
-            CustomerDetails[i].cid = id;
-            CustomerDetails[i].cname = name;
-            CustomerDetails[i].caddress = address;
-            CustomerDetails[i].csalary = salary;
-
-
-            getAll();
-            clearFields();
-
-            break;
-
+    let newCustomer = Object.assign({}, customer);
+    newCustomer.id = $("#customerIdText").val();
+    newCustomer.name = $("#customerNameText").val();
+    newCustomer.address = $("#customerAddressText").val();
+    console.log(newCustomer)
+    $.ajax({
+        url: "http://localhost:8080/POS/customer",
+        method: "PUT",
+        contentType: "application/json",
+        data: JSON.stringify(newCustomer),
+        success: function (resp, status, xhr) {
+            if (xhr.status === 200) {
+                alert(resp)
+                getAll();
+            }
+        },
+        error: function (xhr) {
+            alert(xhr.responseText)
         }
-
-        if(i == CustomerDetails.length - 1){
-            alert("No")
-        }
-
-    }
-
-    getAll();
+    });
 
 });
 

@@ -1,4 +1,4 @@
-var order = {
+export var order = {
     orderId : "",
     customerId : "",
     total : "",

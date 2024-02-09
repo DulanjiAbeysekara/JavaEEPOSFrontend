@@ -1,6 +1,5 @@
-var customer = {
-    cid : "",
-    cname : "",
-    caddress : "",
-    csalary : ""
+export var customer = {
+    id : "",
+    name : "",
+    address : ""
 }
